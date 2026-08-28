@@ -44,6 +44,9 @@ export const AuthModal = () => {
                 });
                 if (res && res.message) {
                   setFeedback({ type: 'success', text: res.message });
+                  setTimeout(() => {
+                    setAuthModalOpen(false);
+                  }, 400);
                 }
               }
             }
@@ -91,6 +94,11 @@ export const AuthModal = () => {
                     });
                     if (res && res.message) {
                       setFeedback({ type: res.success ? 'success' : 'error', text: res.message });
+                      if (res.success) {
+                        setTimeout(() => {
+                          setAuthModalOpen(false);
+                        }, 400);
+                      }
                     }
                   }
                 })

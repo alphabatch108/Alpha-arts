@@ -59,6 +59,8 @@ const getStateFromHash = () => {
     tab = 'support';
   } else if (routePath.includes('profile')) {
     tab = 'profile';
+  } else if (routePath.includes('admin')) {
+    tab = 'admin';
   }
 
   if (queryString) {
@@ -98,11 +100,7 @@ export const AppProvider = ({ children }) => {
       const stateObj = { tab: nextTab, selectedClass: nextClass, selectedSubject: nextSubject };
 
       if (window.location.hash !== targetHash) {
-        if (replace) {
-          window.history.replaceState(stateObj, '', targetHash);
-        } else {
-          window.history.pushState(stateObj, '', targetHash);
-        }
+        window.location.hash = targetHash;
       }
     }
   };
@@ -403,8 +401,8 @@ export const AppProvider = ({ children }) => {
         localStorage.setItem('study_hub_current_user', JSON.stringify(adminOwnerUser));
         setFailedLoginAttempts(0);
         setAuthModalOpen(false);
-        setActiveTab('admin');
-        return { success: true, message: 'Welcome Owner! Admin Panel opened.' };
+        setActiveTab('home', 'all');
+        return { success: true, message: 'Welcome Owner! Redirected to Home page.' };
       } else {
         const attempts = failedLoginAttempts + 1;
         setFailedLoginAttempts(attempts);
@@ -427,6 +425,7 @@ export const AppProvider = ({ children }) => {
       localStorage.setItem('study_hub_current_user', JSON.stringify(foundUser));
       setFailedLoginAttempts(0);
       setAuthModalOpen(false);
+      setActiveTab('home', 'all');
       return { success: true, message: `Welcome back, ${foundUser.name}!` };
     } else if (cleanEmail.includes('@')) {
       const newUser = {
@@ -444,6 +443,7 @@ export const AppProvider = ({ children }) => {
       localStorage.setItem('study_hub_current_user', JSON.stringify(newUser));
       setFailedLoginAttempts(0);
       setAuthModalOpen(false);
+      setActiveTab('home', 'all');
       return { success: true, message: 'Student Login successful!' };
     } else {
       const attempts = failedLoginAttempts + 1;
@@ -477,6 +477,7 @@ export const AppProvider = ({ children }) => {
     setUsers(prev => [newUser, ...prev]);
     setCurrentUser(newUser);
     setAuthModalOpen(false);
+    setActiveTab('home', 'all');
     return { success: true, message: 'Account created successfully! Email verification code sent.' };
   };
 
