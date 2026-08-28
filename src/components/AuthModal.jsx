@@ -15,6 +15,8 @@ export const AuthModal = () => {
   const [showCustomEmailStep, setShowCustomEmailStep] = useState(false);
   const [feedback, setFeedback] = useState(null);
 
+  const GOOGLE_CLIENT_ID = (typeof window !== 'undefined' && window.GOOGLE_CLIENT_ID) || import.meta.env.VITE_GOOGLE_CLIENT_ID || '921200467070-djn651tah3a6ai3vbeo820q1oqsd84lh.apps.googleusercontent.com';
+
   useEffect(() => {
     if (!authModalOpen) {
       setFeedback(null);
@@ -29,7 +31,7 @@ export const AuthModal = () => {
     if (typeof window !== 'undefined' && window.google && window.google.accounts && window.google.accounts.id) {
       try {
         window.google.accounts.id.initialize({
-          client_id: '928374920183-samplegoogleclientid.apps.googleusercontent.com',
+          client_id: GOOGLE_CLIENT_ID,
           callback: (response) => {
             if (response && response.credential) {
               const profile = parseJwt(response.credential);
@@ -71,7 +73,7 @@ export const AuthModal = () => {
     if (typeof window !== 'undefined' && window.google && window.google.accounts && window.google.accounts.oauth2) {
       try {
         const tokenClient = window.google.accounts.oauth2.initTokenClient({
-          client_id: '928374920183-samplegoogleclientid.apps.googleusercontent.com',
+          client_id: GOOGLE_CLIENT_ID,
           scope: 'email profile openid',
           callback: (tokenResponse) => {
             if (tokenResponse && tokenResponse.access_token) {
