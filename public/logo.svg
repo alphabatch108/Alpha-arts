@@ -1,0 +1,49 @@
+<svg width="400" height="400" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Outer Container Glow / Shadow (Optional, transparent background) -->
+  <g id="logo-emblem">
+    <!-- Left Peak / First 'A' -->
+    <path 
+      d="M 90 235 L 165 75 C 172 60 193 60 200 75 L 225 125 C 228 132 220 144 208 144 L 152 144 L 105 240 C 97 256 113 272 133 264 C 145 260 161 244 185 212" 
+      stroke="#2563eb" 
+      stroke-width="32" 
+      stroke-linecap="round" 
+      stroke-linejoin="round" 
+    />
+
+    <!-- Right Peak & Book Page Contour / Second 'A' -->
+    <path 
+      d="M 205 85 L 270 60 C 295 50 320 66 320 95 L 320 220 C 320 238 296 258 268 266 L 216 282 C 200 286 184 274 184 254 L 184 178" 
+      stroke="#2563eb" 
+      stroke-width="30" 
+      stroke-linecap="round" 
+      stroke-linejoin="round" 
+      fill="none"
+    />
+
+    <!-- Brush Ribbon Crossbar Ribbon -->
+    <path 
+      d="M 64 228 C 88 180 144 164 184 204 C 220 236 256 188 288 140 L 304 124 C 308 120 316 124 316 132 C 308 156 292 172 272 180 C 240 196 204 172 176 220 C 144 272 88 260 72 236 Z" 
+      fill="#2563eb" 
+    />
+
+    <!-- Flame / Paintbrush Tip Detail -->
+    <path 
+      d="M 280 116 C 288 92 304 84 304 84 C 304 84 312 104 300 120 C 292 128 284 124 280 116 Z" 
+      fill="#2563eb" 
+    />
+  </g>
+
+  <!-- Alpha Arts Typography Below -->
+  <text 
+    x="200" 
+    y="350" 
+    font-family="'Outfit', 'Inter', system-ui, -apple-system, sans-serif" 
+    font-weight="800" 
+    font-size="52" 
+    fill="#2563eb" 
+    text-anchor="middle" 
+    letter-spacing="-1.5"
+  >
+    Alpha Arts
+  </text>
+</svg>

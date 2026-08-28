@@ -1,0 +1,281 @@
+// Study Hub Mock Data & Seed Storage
+
+export const INITIAL_CLASSES = [
+  {
+    id: 'class-10',
+    name: 'Class 10',
+    description: 'Comprehensive Board Exam Preparation Notes & Video Lectures',
+    badge: 'Secondary Board',
+    icon: 'GraduationCap',
+    subjects: [
+      { id: 'c10-eng', name: 'English', icon: 'BookOpen', color: 'emerald' },
+      { id: 'c10-hin', name: 'Hindi', icon: 'Feather', color: 'orange' },
+      { id: 'c10-sci', name: 'Science', icon: 'Atom', color: 'blue' },
+      { id: 'c10-sst', name: 'Social Science', icon: 'Globe', color: 'amber' },
+      { id: 'c10-ped', name: 'Physical Education', icon: 'Activity', color: 'red' },
+      { id: 'c10-san', name: 'Sanskrit', icon: 'ScrollText', color: 'purple' },
+      { id: 'c10-it',  name: 'IT (Information Tech)', icon: 'Cpu', color: 'cyan' },
+      { id: 'c10-cs',  name: 'Computer Science', icon: 'Code', color: 'indigo' },
+    ]
+  },
+  {
+    id: 'class-12-arts',
+    name: 'Class 12 Arts',
+    description: 'Senior Secondary Humanities & Arts Complete Study Materials',
+    badge: 'Senior Secondary',
+    icon: 'Award',
+    subjects: [
+      { id: 'c12-his', name: 'History', icon: 'ScrollText', color: 'amber' },
+      { id: 'c12-hin', name: 'Hindi', icon: 'Feather', color: 'orange' },
+      { id: 'c12-eng', name: 'English', icon: 'BookOpen', color: 'emerald' },
+      { id: 'c12-pol', name: 'Political Science', icon: 'Landmark', color: 'red' },
+      { id: 'c12-geo', name: 'Geography', icon: 'Compass', color: 'amber' },
+      { id: 'c12-psy', name: 'Psychology', icon: 'Brain', color: 'pink' },
+      { id: 'c12-eco', name: 'Economics', icon: 'TrendingUp', color: 'teal' },
+      { id: 'c12-cs',  name: 'Computer Science', icon: 'Code', color: 'indigo' },
+      { id: 'c12-it',  name: 'IT (Information Tech)', icon: 'Cpu', color: 'cyan' },
+      { id: 'c12-ped', name: 'Physical Education', icon: 'Activity', color: 'rose' },
+      { id: 'c12-mus', name: 'Music', icon: 'Music', color: 'purple' },
+      { id: 'c12-san', name: 'Sanskrit', icon: 'ScrollText', color: 'violet' },
+    ]
+  }
+];
+
+export const INITIAL_PDFS = [
+  {
+    id: 'pdf-c12-his-ch1',
+    title: 'Class 12 History - Chapter 1: Bricks, Beads and Bones (The Harappan Civilisation) Notes',
+    description: 'Complete NCERT Class 12 History Chapter 1 study material, Harappan seals, town planning, craft production, trade networks, and expected CBSE board exam questions.',
+    class: 'class-12-arts',
+    className: 'Class 12 Arts',
+    subject: 'History',
+    category: 'Official Board Notes',
+    fileSize: '3.8 MB',
+    pages: 14,
+    downloads: 240,
+    views: 790,
+    rating: 5.0,
+    author: 'Alpha Arts Editorial Team',
+    uploadDate: '2026-08-25',
+    featured: true,
+    fileContentUrl: 'https://drive.google.com/file/d/10n6V-5Nlym52AYpuWCTvQN1S-tPjm5Fy/view?usp=drive_link',
+    driveUrl: 'https://drive.google.com/file/d/10n6V-5Nlym52AYpuWCTvQN1S-tPjm5Fy/view?usp=drive_link',
+    downloadUrl: 'https://drive.google.com/uc?export=download&id=10n6V-5Nlym52AYpuWCTvQN1S-tPjm5Fy'
+  },
+  {
+    id: 'pdf-c12-his-pyq-2024',
+    title: 'CBSE Class 12 History Board Exam Question Paper 2024 with Solutions',
+    description: 'Official CBSE Class 12 History previous year question paper with marking scheme and model answers.',
+    class: 'class-12-arts',
+    className: 'Class 12 Arts',
+    subject: 'History',
+    category: 'PYQ 2024',
+    year: '2024',
+    fileSize: '4.2 MB',
+    pages: 16,
+    downloads: 310,
+    views: 850,
+    rating: 4.9,
+    author: 'CBSE Board',
+    uploadDate: '2026-08-25',
+    fileContentUrl: 'https://drive.google.com/file/d/10n6V-5Nlym52AYpuWCTvQN1S-tPjm5Fy/view?usp=drive_link',
+    driveUrl: 'https://drive.google.com/file/d/10n6V-5Nlym52AYpuWCTvQN1S-tPjm5Fy/view?usp=drive_link',
+    downloadUrl: 'https://drive.google.com/uc?export=download&id=10n6V-5Nlym52AYpuWCTvQN1S-tPjm5Fy'
+  },
+  {
+    id: 'pdf-c12-geo-ch1',
+    title: 'Class 12 Geography - Chapter 1: Human Geography (Nature and Scope) Notes',
+    description: 'Official NCERT Class 12 Geography Chapter 1 Study Material, Human Geography concepts, scope, and key CBSE board exam questions.',
+    class: 'class-12-arts',
+    className: 'Class 12 Arts',
+    subject: 'Geography',
+    category: 'Official Board Notes',
+    fileSize: '3.5 MB',
+    pages: 12,
+    downloads: 185,
+    views: 620,
+    rating: 5.0,
+    author: 'Alpha Arts Editorial Team',
+    uploadDate: '2026-08-25',
+    featured: true,
+    fileContentUrl: 'https://drive.google.com/file/d/10n6V-5Nlym52AYpuWCTvQN1S-tPjm5Fy/view?usp=drive_link',
+    driveUrl: 'https://drive.google.com/file/d/10n6V-5Nlym52AYpuWCTvQN1S-tPjm5Fy/view?usp=drive_link',
+    downloadUrl: 'https://drive.google.com/uc?export=download&id=10n6V-5Nlym52AYpuWCTvQN1S-tPjm5Fy'
+  }
+];
+
+export const INITIAL_YOUTUBE_LECTURES = [
+  {
+    id: 'yt-1',
+    title: 'Class 10 Science: Chemical Reactions & Equations Full Chapter Revision',
+    channel: 'Study Hub NCERT',
+    class: 'class-10',
+    className: 'Class 10',
+    subject: 'Science',
+    duration: '45m',
+    youtubeId: 'a2qW1L_4uEE',
+    embedUrl: 'https://www.youtube.com/embed/a2qW1L_4uEE',
+    youtubeUrl: 'https://www.youtube.com/watch?v=a2qW1L_4uEE',
+    views: '12,400',
+    tags: ['Science', 'NCERT', 'Class 10']
+  },
+  {
+    id: 'yt-2',
+    title: 'Class 12 Political Science: Contemporary World Politics Chapter 1',
+    channel: 'Humanities Board Classes',
+    class: 'class-12-arts',
+    className: 'Class 12 Arts',
+    subject: 'Political Science',
+    duration: '52m',
+    youtubeId: 'fJ9rUzIMcZQ',
+    embedUrl: 'https://www.youtube.com/embed/fJ9rUzIMcZQ',
+    youtubeUrl: 'https://www.youtube.com/watch?v=fJ9rUzIMcZQ',
+    views: '18,200',
+    tags: ['Political Science', 'Class 12 Arts', 'Board Prep']
+  }
+];
+
+export const INITIAL_FAQS = [
+  {
+    id: 'faq-1',
+    category: 'Downloads & Access',
+    question: 'Are all study notes and PDF documents completely free to download?',
+    answer: 'Yes! All revision notes, formula sheets, sample papers, and mind maps on Study Hub are 100% free to access and download for all registered students.'
+  },
+  {
+    id: 'faq-2',
+    category: 'Curriculum & Boards',
+    question: 'Which educational boards are covered under Class 10 & Class 12 Arts?',
+    answer: 'Our notes strictly follow NCERT guidelines and cover CBSE, ICSE, and major State Boards (UP Board, Bihar Board, MP Board, Rajasthan Board, Maharashtra Board).'
+  },
+  {
+    id: 'faq-3',
+    category: 'YouTube Lectures',
+    question: 'Can I watch YouTube video lectures directly on Study Hub?',
+    answer: 'Yes, you can stream curated video lectures directly within Study Hub using our embedded HD media player, or click "Watch on YouTube" to open them in the official app.'
+  },
+  {
+    id: 'faq-4',
+    category: 'Account & Security',
+    question: 'How do I track my previous PDF downloads?',
+    answer: 'When logged in, visit your User Profile or My Downloads tab to see a complete history of notes you have viewed or saved.'
+  },
+  {
+    id: 'faq-5',
+    category: 'Admin Uploads',
+    question: 'How can teachers or content creators submit notes for publishing?',
+    answer: 'Teachers can submit notes by opening a Support Ticket under "Content Submission" or by registering with an Editor role via the Admin Panel.'
+  }
+];
+
+export const INITIAL_TICKETS = [];
+
+export const INITIAL_USERS = [
+  {
+    id: 'usr-admin-owner',
+    name: 'Karan Nehra (Owner)',
+    email: 'karannehra108@gmail.com',
+    password: 'kaisier@108',
+    role: 'Super Admin',
+    avatar: null,
+    blocked: false,
+    joinDate: '2026-01-01',
+    downloadsCount: 0
+  }
+];
+
+export const MYSQL_SCHEMA_SQL = `-- Study Hub Database Schema Definition (MySQL 8.0+)
+-- Generated for Study Hub Educational Platform
+
+CREATE DATABASE IF NOT EXISTS \`study_hub_db\` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE \`study_hub_db\`;
+
+-- 1. Users Table
+CREATE TABLE IF NOT EXISTS \`users\` (
+  \`id\` INT AUTO_INCREMENT PRIMARY KEY,
+  \`name\` VARCHAR(100) NOT NULL,
+  \`email\` VARCHAR(150) NOT NULL UNIQUE,
+  \`password\` VARCHAR(255) NOT NULL,
+  \`role\` ENUM('Super Admin', 'Editor', 'Student') DEFAULT 'Student',
+  \`blocked\` TINYINT(1) DEFAULT 0,
+  \`avatar\` VARCHAR(255) DEFAULT NULL,
+  \`created_at\` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- 2. Categories Table
+CREATE TABLE IF NOT EXISTS \`categories\` (
+  \`id\` INT AUTO_INCREMENT PRIMARY KEY,
+  \`name\` VARCHAR(100) NOT NULL,
+  \`class\` VARCHAR(50) NOT NULL,
+  \`created_at\` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- 3. PDFs Table
+CREATE TABLE IF NOT EXISTS \`pdfs\` (
+  \`id\` INT AUTO_INCREMENT PRIMARY KEY,
+  \`title\` VARCHAR(255) NOT NULL,
+  \`description\` TEXT NOT NULL,
+  \`file_url\` VARCHAR(255) NOT NULL,
+  \`thumbnail\` VARCHAR(255) DEFAULT NULL,
+  \`class\` VARCHAR(50) NOT NULL,
+  \`subject\` VARCHAR(100) NOT NULL,
+  \`category\` VARCHAR(100) DEFAULT 'General Notes',
+  \`file_size\` VARCHAR(20) DEFAULT '2.5 MB',
+  \`pages\` INT DEFAULT 10,
+  \`downloads\` INT DEFAULT 0,
+  \`views\` INT DEFAULT 0,
+  \`rating\` DECIMAL(3,1) DEFAULT 4.8,
+  \`author\` VARCHAR(100) DEFAULT 'Study Hub Team',
+  \`created_at\` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- 4. Downloads History Table
+CREATE TABLE IF NOT EXISTS \`downloads\` (
+  \`id\` INT AUTO_INCREMENT PRIMARY KEY,
+  \`user_id\` INT NOT NULL,
+  \`pdf_id\` INT NOT NULL,
+  \`timestamp\` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (\`user_id\`) REFERENCES \`users\`(\`id\`) ON DELETE CASCADE,
+  FOREIGN KEY (\`pdf_id\`) REFERENCES \`pdfs\`(\`id\`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- 5. Support Tickets Table
+CREATE TABLE IF NOT EXISTS \`support_tickets\` (
+  \`id\` INT AUTO_INCREMENT PRIMARY KEY,
+  \`user_id\` INT DEFAULT NULL,
+  \`user_name\` VARCHAR(100) NOT NULL,
+  \`user_email\` VARCHAR(150) NOT NULL,
+  \`subject\` VARCHAR(255) NOT NULL,
+  \`message\` TEXT NOT NULL,
+  \`category\` VARCHAR(100) DEFAULT 'General Enquiry',
+  \`status\` ENUM('Open', 'Replied', 'Closed') DEFAULT 'Open',
+  \`created_at\` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- 6. FAQs Table
+CREATE TABLE IF NOT EXISTS \`faqs\` (
+  \`id\` INT AUTO_INCREMENT PRIMARY KEY,
+  \`category\` VARCHAR(100) DEFAULT 'General',
+  \`question\` TEXT NOT NULL,
+  \`answer\` TEXT NOT NULL,
+  \`created_at\` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- 7. YouTube Lectures Table
+CREATE TABLE IF NOT EXISTS \`youtube_lectures\` (
+  \`id\` INT AUTO_INCREMENT PRIMARY KEY,
+  \`title\` VARCHAR(255) NOT NULL,
+  \`video_url\` VARCHAR(255) NOT NULL,
+  \`youtube_id\` VARCHAR(100) NOT NULL,
+  \`channel\` VARCHAR(100) NOT NULL,
+  \`subject\` VARCHAR(100) NOT NULL,
+  \`class\` VARCHAR(50) NOT NULL,
+  \`duration\` VARCHAR(20) DEFAULT '45m',
+  \`created_at\` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Insert Default Seed Super Admin
+INSERT INTO \`users\` (\`name\`, \`email\`, \`password\`, \`role\`)
+VALUES ('Super Admin', 'admin@studyhub.com', '$2a$12$eImiTXuWVxfM37uY4JANjO5E.8i93/V6L/P3aU9t234u.', 'Super Admin')
+ON DUPLICATE KEY UPDATE \`name\`=\`name\`;
+`;
