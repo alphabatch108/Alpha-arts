@@ -502,8 +502,8 @@ export const AppProvider = ({ children }) => {
       setCurrentUser(adminOwnerUser);
       localStorage.setItem('study_hub_current_user', JSON.stringify(adminOwnerUser));
       setAuthModalOpen(false);
-      setActiveTab('admin');
-      return { success: true, message: 'Super Admin authenticated via Google! Admin Panel opened.', user: adminOwnerUser };
+      setActiveTab('home');
+      return { success: true, message: 'Authenticated via Google! Redirecting to Home...', user: adminOwnerUser };
     }
 
     // Existing User Check
@@ -520,6 +520,7 @@ export const AppProvider = ({ children }) => {
       setCurrentUser(updatedUser);
       localStorage.setItem('study_hub_current_user', JSON.stringify(updatedUser));
       setAuthModalOpen(false);
+      setActiveTab('home');
       return { success: true, message: `Welcome back, ${updatedUser.name}!`, user: updatedUser };
     }
 
@@ -539,6 +540,7 @@ export const AppProvider = ({ children }) => {
     setCurrentUser(newGoogleUser);
     localStorage.setItem('study_hub_current_user', JSON.stringify(newGoogleUser));
     setAuthModalOpen(false);
+    setActiveTab('home');
     return { success: true, message: `Authenticated via Google as ${newGoogleUser.name}!`, user: newGoogleUser };
   };
 
