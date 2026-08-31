@@ -46,6 +46,27 @@ export const Class12View = () => {
     downloadUrl: 'https://drive.google.com/uc?export=download&id=10n6V-5Nlym52AYpuWCTvQN1S-tPjm5Fy'
   };
 
+  const itDbmsPdf = pdfs.find(p => p.id === 'pdf-c12-it-dbms-30q') || {
+    id: 'pdf-c12-it-dbms-30q',
+    title: 'Class 12 IT — Database Management System: 30 Most Important 1 Mark Questions',
+    description: 'Top 30 expected 1-mark objective questions, MCQs, fill-in-the-blanks, and one-word answers for Class 12 IT (Information Technology) Database Management System (DBMS) CBSE Board Exam.',
+    class: 'class-12-arts',
+    className: 'Class 12 Arts',
+    subject: 'IT (Information Tech)',
+    category: 'Top 30 1-Mark Questions',
+    fileSize: '3.2 MB',
+    pages: 10,
+    downloads: 380,
+    views: 1120,
+    rating: 5.0,
+    author: 'Alpha Arts Editorial Team',
+    uploadDate: '2026-08-31',
+    featured: true,
+    fileContentUrl: 'https://drive.google.com/file/d/1NF9NjsPhvpnMxoIDx1wZUvy_dYk0ai5X/view?usp=drive_link',
+    driveUrl: 'https://drive.google.com/file/d/1NF9NjsPhvpnMxoIDx1wZUvy_dYk0ai5X/view?usp=drive_link',
+    downloadUrl: 'https://drive.google.com/uc?export=download&id=1NF9NjsPhvpnMxoIDx1wZUvy_dYk0ai5X'
+  };
+
   const handleSubjectClick = (subjName) => {
     setActiveTab('notes', 'class-12-arts', subjName);
   };
@@ -302,6 +323,86 @@ export const Class12View = () => {
                 rel="noopener noreferrer"
                 style={{
                   color: '#2563eb',
+                  fontSize: '0.85rem',
+                  fontWeight: 600,
+                  textDecoration: 'none',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.35rem',
+                  marginLeft: '0.5rem'
+                }}
+                className="hover-lift"
+              >
+                <span>Open in Google Drive</span>
+                <ExternalLink size={14} />
+              </a>
+            </div>
+          </div>
+
+          {/* Featured Notes Section: Class 12 IT Database Management System (DBMS) 30 1 Mark Questions */}
+          <div style={{
+            padding: '1.75rem 2rem',
+            borderRadius: '16px',
+            background: 'var(--bg-card)',
+            border: '1px solid var(--border-color)',
+            marginTop: '1.5rem',
+            boxShadow: '0 4px 16px rgba(0, 0, 0, 0.04)'
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.75rem' }}>
+              <span className="badge badge-emerald">Featured Resource</span>
+              <span className="badge badge-primary" style={{ background: '#0891b2', color: '#fff' }}>IT (Information Tech)</span>
+              <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Class 12 • DBMS Topic</span>
+            </div>
+
+            <h3 style={{
+              fontSize: '1.35rem',
+              fontWeight: 800,
+              color: 'var(--text-main)',
+              marginBottom: '0.5rem',
+              fontFamily: "'Outfit', sans-serif"
+            }}>
+              Class 12 IT — Database Management System: 30 Most Important 1 Mark Questions
+            </h3>
+
+            <p style={{
+              fontSize: '0.875rem',
+              color: 'var(--text-muted)',
+              lineHeight: 1.6,
+              marginBottom: '1.5rem'
+            }}>
+              Top 30 expected 1-mark objective questions, MCQs, fill-in-the-blanks, and key concepts for Class 12 IT Database Management System (DBMS) CBSE board exam preparation.
+            </p>
+
+            <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '0.85rem' }}>
+              {/* Direct Download Button */}
+              <a
+                href={itDbmsPdf.downloadUrl || "https://drive.google.com/uc?export=download&id=1NF9NjsPhvpnMxoIDx1wZUvy_dYk0ai5X"}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-primary hover-lift"
+                style={{ padding: '0.65rem 1.4rem', borderRadius: '8px', fontSize: '0.875rem', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', background: '#0891b2', borderColor: '#0891b2' }}
+              >
+                <Download size={16} />
+                <span>Download PDF</span>
+              </a>
+
+              {/* View PDF Modal Button */}
+              <button
+                onClick={() => setViewingPdf(itDbmsPdf)}
+                className="btn btn-secondary hover-lift"
+                style={{ padding: '0.65rem 1.4rem', borderRadius: '8px', fontSize: '0.875rem', display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}
+              >
+                <FileText size={16} />
+                <span>Preview Notes</span>
+              </button>
+
+              {/* Open Google Drive Link Button */}
+              <a
+                href={itDbmsPdf.fileContentUrl || "https://drive.google.com/file/d/1NF9NjsPhvpnMxoIDx1wZUvy_dYk0ai5X/view?usp=drive_link"}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  color: '#0891b2',
                   fontSize: '0.85rem',
                   fontWeight: 600,
                   textDecoration: 'none',

@@ -101,6 +101,26 @@ export const INITIAL_PDFS = [
     fileContentUrl: 'https://drive.google.com/file/d/10n6V-5Nlym52AYpuWCTvQN1S-tPjm5Fy/view?usp=drive_link',
     driveUrl: 'https://drive.google.com/file/d/10n6V-5Nlym52AYpuWCTvQN1S-tPjm5Fy/view?usp=drive_link',
     downloadUrl: 'https://drive.google.com/uc?export=download&id=10n6V-5Nlym52AYpuWCTvQN1S-tPjm5Fy'
+  },
+  {
+    id: 'pdf-c12-it-dbms-30q',
+    title: 'Class 12 IT — Database Management System: 30 Most Important 1 Mark Questions',
+    description: 'Top 30 expected 1-mark objective questions, MCQs, fill-in-the-blanks, and one-word answers for Class 12 IT (Information Technology) Database Management System (DBMS) CBSE Board Exam.',
+    class: 'class-12-arts',
+    className: 'Class 12 Arts',
+    subject: 'IT (Information Tech)',
+    category: 'Top 30 1-Mark Questions',
+    fileSize: '3.2 MB',
+    pages: 10,
+    downloads: 380,
+    views: 1120,
+    rating: 5.0,
+    author: 'Alpha Arts Editorial Team',
+    uploadDate: '2026-08-31',
+    featured: true,
+    fileContentUrl: 'https://drive.google.com/file/d/1NF9NjsPhvpnMxoIDx1wZUvy_dYk0ai5X/view?usp=drive_link',
+    driveUrl: 'https://drive.google.com/file/d/1NF9NjsPhvpnMxoIDx1wZUvy_dYk0ai5X/view?usp=drive_link',
+    downloadUrl: 'https://drive.google.com/uc?export=download&id=1NF9NjsPhvpnMxoIDx1wZUvy_dYk0ai5X'
   }
 ];
 

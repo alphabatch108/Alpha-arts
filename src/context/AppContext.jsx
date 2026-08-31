@@ -59,8 +59,6 @@ const getStateFromHash = () => {
     tab = 'support';
   } else if (routePath.includes('profile')) {
     tab = 'profile';
-  } else if (routePath.includes('admin')) {
-    tab = 'admin';
   }
 
   if (queryString) {
@@ -100,7 +98,11 @@ export const AppProvider = ({ children }) => {
       const stateObj = { tab: nextTab, selectedClass: nextClass, selectedSubject: nextSubject };
 
       if (window.location.hash !== targetHash) {
-        window.location.hash = targetHash;
+        if (replace) {
+          window.history.replaceState(stateObj, '', targetHash);
+        } else {
+          window.history.pushState(stateObj, '', targetHash);
+        }
       }
     }
   };
@@ -172,8 +174,10 @@ export const AppProvider = ({ children }) => {
       try {
         const parsed = JSON.parse(saved);
         if (Array.isArray(parsed) && parsed.length > 0) {
-          const userOnly = parsed.filter(p => p.id === 'pdf-c12-geo-ch1' || p.id.startsWith('pdf-user-') || p.id.startsWith('pdf-1'));
-          return userOnly.length > 0 ? userOnly : INITIAL_PDFS;
+          const map = new Map();
+          INITIAL_PDFS.forEach(p => map.set(p.id, p));
+          parsed.forEach(p => map.set(p.id, p));
+          return Array.from(map.values());
         }
       } catch (e) {}
     }

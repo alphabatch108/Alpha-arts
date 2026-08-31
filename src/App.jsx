@@ -259,9 +259,6 @@ const MainAppContent = () => {
         {/* VIEW 10: USER PROFILE PAGE */}
         {activeTab === 'profile' && <UserProfileModal />}
 
-        {/* VIEW 11: ADMIN DASHBOARD PAGE */}
-        {activeTab === 'admin' && <AdminDashboard />}
-
       </main>
 
       {/* Floating Modals */}
