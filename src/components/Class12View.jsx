@@ -30,26 +30,6 @@ export const Class12View = () => {
     (pdf.subject?.toLowerCase().includes('it') || pdf.subject?.toLowerCase().includes('information'))
   );
 
-  const geoCh1Pdf = pdfs.find(p => p.id === 'pdf-c12-geo-ch1') || {
-    id: 'pdf-c12-geo-ch1',
-    title: 'Class 12 Geography - Chapter 1: Human Geography (Nature and Scope) Notes',
-    description: 'Official NCERT Class 12 Geography Chapter 1 Study Material, Human Geography concepts, scope, and key CBSE board exam questions.',
-    class: 'class-12-arts',
-    className: 'Class 12 Arts',
-    subject: 'Geography',
-    category: 'Official Board Notes',
-    fileSize: '3.5 MB',
-    pages: 12,
-    downloads: 185,
-    views: 620,
-    rating: 5.0,
-    author: 'Alpha Arts Editorial Team',
-    uploadDate: '2026-08-25',
-    featured: true,
-    fileContentUrl: 'https://drive.google.com/file/d/10n6V-5Nlym52AYpuWCTvQN1S-tPjm5Fy/view?usp=drive_link',
-    driveUrl: 'https://drive.google.com/file/d/10n6V-5Nlym52AYpuWCTvQN1S-tPjm5Fy/view?usp=drive_link',
-    downloadUrl: 'https://drive.google.com/uc?export=download&id=10n6V-5Nlym52AYpuWCTvQN1S-tPjm5Fy'
-  };
 
   const itDbmsPdf = pdfs.find(p => p.id === 'pdf-c12-it-dbms-30q') || {
     id: 'pdf-c12-it-dbms-30q',
@@ -264,85 +244,6 @@ export const Class12View = () => {
           {/* Middle Banner (Responsive) matching Image 4 */}
           <AdBanner slot="middleBanner" type="responsive" label="Advertisement (Responsive)" />
 
-          {/* Featured Notes Section: Class 12 Geography Chapter 1 */}
-          <div style={{
-            padding: '1.75rem 2rem',
-            borderRadius: '16px',
-            background: 'var(--bg-card)',
-            border: '1px solid var(--border-color)',
-            marginTop: '2rem',
-            boxShadow: '0 4px 16px rgba(0, 0, 0, 0.04)'
-          }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.75rem' }}>
-              <span className="badge badge-emerald">Featured Resource</span>
-              <span className="badge badge-primary">Geography</span>
-              <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Class 12 Arts • Chapter 1</span>
-            </div>
-
-            <h3 style={{
-              fontSize: '1.35rem',
-              fontWeight: 800,
-              color: 'var(--text-main)',
-              marginBottom: '0.5rem',
-              fontFamily: "'Outfit', sans-serif"
-            }}>
-              Class 12 Geography — Chapter 1: Human Geography (Nature & Scope) Notes
-            </h3>
-
-            <p style={{
-              fontSize: '0.875rem',
-              color: 'var(--text-muted)',
-              lineHeight: 1.6,
-              marginBottom: '1.5rem'
-            }}>
-              Complete NCERT Chapter 1 study material, detailed definitions, scope, sub-fields of Human Geography, and key expected CBSE board exam questions.
-            </p>
-
-            <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '0.85rem' }}>
-              {/* Direct Download Button */}
-              <a
-                href="https://drive.google.com/uc?export=download&id=10n6V-5Nlym52AYpuWCTvQN1S-tPjm5Fy"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-primary hover-lift"
-                style={{ padding: '0.65rem 1.4rem', borderRadius: '8px', fontSize: '0.875rem', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}
-              >
-                <Download size={16} />
-                <span>Download PDF</span>
-              </a>
-
-              {/* View PDF Modal Button */}
-              <button
-                onClick={() => setViewingPdf(geoCh1Pdf)}
-                className="btn btn-secondary hover-lift"
-                style={{ padding: '0.65rem 1.4rem', borderRadius: '8px', fontSize: '0.875rem', display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}
-              >
-                <FileText size={16} />
-                <span>Preview Notes</span>
-              </button>
-
-              {/* Open Google Drive Link Button */}
-              <a
-                href="https://drive.google.com/file/d/10n6V-5Nlym52AYpuWCTvQN1S-tPjm5Fy/view?usp=drive_link"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  color: '#2563eb',
-                  fontSize: '0.85rem',
-                  fontWeight: 600,
-                  textDecoration: 'none',
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '0.35rem',
-                  marginLeft: '0.5rem'
-                }}
-                className="hover-lift"
-              >
-                <span>Open in Google Drive</span>
-                <ExternalLink size={14} />
-              </a>
-            </div>
-          </div>
 
           {/* Featured Notes Section: Class 12 IT Database Management System (DBMS) 30 1 Mark Questions */}
           <div style={{

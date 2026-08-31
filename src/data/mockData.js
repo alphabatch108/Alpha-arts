@@ -82,26 +82,7 @@ export const INITIAL_PDFS = [
     driveUrl: 'https://drive.google.com/file/d/10n6V-5Nlym52AYpuWCTvQN1S-tPjm5Fy/view?usp=drive_link',
     downloadUrl: 'https://drive.google.com/uc?export=download&id=10n6V-5Nlym52AYpuWCTvQN1S-tPjm5Fy'
   },
-  {
-    id: 'pdf-c12-geo-ch1',
-    title: 'Class 12 Geography - Chapter 1: Human Geography (Nature and Scope) Notes',
-    description: 'Official NCERT Class 12 Geography Chapter 1 Study Material, Human Geography concepts, scope, and key CBSE board exam questions.',
-    class: 'class-12-arts',
-    className: 'Class 12 Arts',
-    subject: 'Geography',
-    category: 'Official Board Notes',
-    fileSize: '3.5 MB',
-    pages: 12,
-    downloads: 185,
-    views: 620,
-    rating: 5.0,
-    author: 'Alpha Arts Editorial Team',
-    uploadDate: '2026-08-25',
-    featured: true,
-    fileContentUrl: 'https://drive.google.com/file/d/10n6V-5Nlym52AYpuWCTvQN1S-tPjm5Fy/view?usp=drive_link',
-    driveUrl: 'https://drive.google.com/file/d/10n6V-5Nlym52AYpuWCTvQN1S-tPjm5Fy/view?usp=drive_link',
-    downloadUrl: 'https://drive.google.com/uc?export=download&id=10n6V-5Nlym52AYpuWCTvQN1S-tPjm5Fy'
-  },
+
   {
     id: 'pdf-c12-it-dbms-30q',
     title: 'Class 12 IT — Database Management System: 30 Most Important 1 Mark Questions',
