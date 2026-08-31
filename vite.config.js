@@ -159,8 +159,10 @@ export default defineConfig({
   plugins: [react(), apiServerPlugin()],
   base: '/Alpha-arts/',
   server: {
+    host: true,
     allowedHosts: [
-      'my-beautiful-sincerely-goody.network-free.dev'
+      'my-beautiful-sincerely-goody.network-free.dev',
+      'all'
     ]
   }
 });
