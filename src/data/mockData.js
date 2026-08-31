@@ -108,7 +108,7 @@ export const INITIAL_PDFS = [
     description: 'Top 30 expected 1-mark objective questions, MCQs, fill-in-the-blanks, and one-word answers for Class 12 IT (Information Technology) Database Management System (DBMS) CBSE Board Exam.',
     class: 'class-12-arts',
     className: 'Class 12 Arts',
-    subject: 'IT (Information Tech)',
+    subject: 'Information Technology (IT)',
     category: 'Top 30 1-Mark Questions',
     fileSize: '3.2 MB',
     pages: 10,

@@ -25,6 +25,11 @@ export const Class12View = () => {
 
   const c12Pyqs = (pdfs || []).filter(pdf => pdf.class === 'class-12-arts' && (pdf.category?.includes('PYQ') || pdf.title?.toLowerCase().includes('pyq')));
 
+  const c12ItPdfs = (pdfs || []).filter(pdf => 
+    pdf.class === 'class-12-arts' && 
+    (pdf.subject?.toLowerCase().includes('it') || pdf.subject?.toLowerCase().includes('information'))
+  );
+
   const geoCh1Pdf = pdfs.find(p => p.id === 'pdf-c12-geo-ch1') || {
     id: 'pdf-c12-geo-ch1',
     title: 'Class 12 Geography - Chapter 1: Human Geography (Nature and Scope) Notes',
@@ -52,7 +57,7 @@ export const Class12View = () => {
     description: 'Top 30 expected 1-mark objective questions, MCQs, fill-in-the-blanks, and one-word answers for Class 12 IT (Information Technology) Database Management System (DBMS) CBSE Board Exam.',
     class: 'class-12-arts',
     className: 'Class 12 Arts',
-    subject: 'IT (Information Tech)',
+    subject: 'Information Technology (IT)',
     category: 'Top 30 1-Mark Questions',
     fileSize: '3.2 MB',
     pages: 10,
@@ -418,6 +423,121 @@ export const Class12View = () => {
               </a>
             </div>
           </div>
+
+          {/* Class 12 IT (Information Technology) Dedicated Section */}
+          <section style={{ marginTop: '2.5rem', marginBottom: '1.5rem' }}>
+            <div style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              marginBottom: '1.25rem',
+              flexWrap: 'wrap',
+              gap: '1rem'
+            }}>
+              <div>
+                <h2 style={{
+                  fontSize: '1.5rem',
+                  fontWeight: 800,
+                  color: 'var(--text-main)',
+                  letterSpacing: '-0.02em',
+                  fontFamily: "'Outfit', sans-serif"
+                }}>
+                  Class 12 IT (Information Technology) Study Materials
+                </h2>
+                <p style={{ fontSize: '0.875rem', color: 'var(--text-muted)', marginTop: '0.2rem' }}>
+                  Important question banks, DBMS chapter notes, and objective 1-mark question sets for Class 12 IT board prep.
+                </p>
+              </div>
+            </div>
+
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
+              gap: '1.25rem'
+            }}>
+              {c12ItPdfs.map((pdf) => (
+                <div 
+                  key={pdf.id}
+                  className="glass-card hover-lift"
+                  style={{
+                    padding: '1.35rem',
+                    borderRadius: '14px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'space-between',
+                    background: 'var(--bg-card)',
+                    border: '1px solid var(--border-color)'
+                  }}
+                >
+                  <div>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.75rem' }}>
+                      <span style={{
+                        fontSize: '0.7rem',
+                        fontWeight: 700,
+                        padding: '0.2rem 0.65rem',
+                        borderRadius: '9999px',
+                        background: 'rgba(8, 145, 178, 0.15)',
+                        color: '#0891b2',
+                        textTransform: 'uppercase'
+                      }}>
+                        {pdf.category || 'Important Questions'}
+                      </span>
+                      <span style={{ fontSize: '0.75rem', color: 'var(--text-dim)' }}>
+                        {pdf.subject}
+                      </span>
+                    </div>
+
+                    <h3 style={{
+                      fontSize: '1.05rem',
+                      fontWeight: 700,
+                      color: 'var(--text-main)',
+                      lineHeight: 1.4,
+                      marginBottom: '0.5rem',
+                      fontFamily: "'Outfit', sans-serif"
+                    }}>
+                      {pdf.title}
+                    </h3>
+
+                    <p style={{
+                      fontSize: '0.825rem',
+                      color: 'var(--text-muted)',
+                      lineHeight: 1.5,
+                      marginBottom: '1rem'
+                    }}>
+                      {pdf.description}
+                    </p>
+                  </div>
+
+                  <div style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.65rem',
+                    paddingTop: '0.85rem',
+                    borderTop: '1px solid var(--border-color)'
+                  }}>
+                    <button
+                      onClick={() => setViewingPdf(pdf)}
+                      className="btn btn-secondary btn-sm"
+                      style={{ flex: 1, padding: '0.5rem 0.75rem', fontSize: '0.825rem', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.4rem' }}
+                    >
+                      <FileText size={14} />
+                      <span>Preview</span>
+                    </button>
+                    <a
+                      href={pdf.downloadUrl || pdf.fileContentUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="btn btn-primary btn-sm"
+                      style={{ flex: 1, padding: '0.5rem 0.75rem', fontSize: '0.825rem', borderRadius: '8px', textDecoration: 'none', background: '#0891b2', borderColor: '#0891b2', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.4rem' }}
+                    >
+                      <Download size={14} />
+                      <span>Download</span>
+                    </a>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
 
           {/* Class 12 Arts PYQ (Previous Year Question Papers) Section */}
           <section style={{ marginTop: '2.5rem', marginBottom: '1.5rem' }}>

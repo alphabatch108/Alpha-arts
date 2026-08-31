@@ -50,7 +50,18 @@ const MainAppContent = () => {
   // Filter logic for PDF notes directory
   const filteredPdfs = pdfs.filter(pdf => {
     const matchesClass = selectedClass === 'all' || pdf.class === selectedClass;
-    const matchesSubject = selectedSubject === 'all' || pdf.subject.toLowerCase() === selectedSubject.toLowerCase();
+    
+    let matchesSubject = selectedSubject === 'all';
+    if (!matchesSubject) {
+      const pSub = (pdf.subject || '').toLowerCase();
+      const sSub = (selectedSubject || '').toLowerCase();
+      if (pSub === sSub) {
+        matchesSubject = true;
+      } else if ((pSub.includes('it') || pSub.includes('information')) && (sSub.includes('it') || sSub.includes('information'))) {
+        matchesSubject = true;
+      }
+    }
+
     const matchesSearch = pdf.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
                           pdf.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
                           pdf.subject.toLowerCase().includes(searchQuery.toLowerCase());
