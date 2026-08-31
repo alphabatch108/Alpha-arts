@@ -176,12 +176,17 @@ export const AppProvider = ({ children }) => {
         if (Array.isArray(parsed) && parsed.length > 0) {
           const map = new Map();
           INITIAL_PDFS.forEach(p => map.set(p.id, p));
-          parsed.forEach(p => map.set(p.id, p));
-          return Array.from(map.values());
+          parsed.forEach(p => {
+            if (p.id !== 'pdf-c12-geo-ch1') map.set(p.id, p);
+          });
+          map.delete('pdf-c12-geo-ch1');
+          const cleanList = Array.from(map.values());
+          localStorage.setItem('study_hub_uploaded_pdfs', JSON.stringify(cleanList));
+          return cleanList;
         }
       } catch (e) {}
     }
-    return INITIAL_PDFS;
+    return INITIAL_PDFS.filter(p => p.id !== 'pdf-c12-geo-ch1');
   });
 
   const [youtubeLectures, setYoutubeLectures] = useState(() => {
@@ -275,13 +280,14 @@ export const AppProvider = ({ children }) => {
       if (cloudRes.ok) {
         const cloudData = await cloudRes.json();
         if (cloudData) {
-          const cloudList = Array.isArray(cloudData) ? cloudData : Object.values(cloudData);
+          const cloudList = (Array.isArray(cloudData) ? cloudData : Object.values(cloudData))
+            .filter(p => p && p.id !== 'pdf-c12-geo-ch1');
           if (cloudList.length > 0) {
             setPdfs(prev => {
-              if (prev.length >= cloudList.length) return prev;
               const uniqueMap = new Map();
-              prev.forEach(p => uniqueMap.set(p.id, p));
-              cloudList.forEach(p => uniqueMap.set(p.id, p));
+              prev.forEach(p => { if (p.id !== 'pdf-c12-geo-ch1') uniqueMap.set(p.id, p); });
+              cloudList.forEach(p => { if (p.id !== 'pdf-c12-geo-ch1') uniqueMap.set(p.id, p); });
+              uniqueMap.delete('pdf-c12-geo-ch1');
               const mergedList = Array.from(uniqueMap.values());
               localStorage.setItem('study_hub_uploaded_pdfs', JSON.stringify(mergedList));
               return mergedList;
