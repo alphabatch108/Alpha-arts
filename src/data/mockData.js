@@ -43,47 +43,6 @@ export const INITIAL_CLASSES = [
 
 export const INITIAL_PDFS = [
   {
-    id: 'pdf-c12-his-ch1',
-    title: 'Class 12 History - Chapter 1: Bricks, Beads and Bones (The Harappan Civilisation) Notes',
-    description: 'Complete NCERT Class 12 History Chapter 1 study material, Harappan seals, town planning, craft production, trade networks, and expected CBSE board exam questions.',
-    class: 'class-12-arts',
-    className: 'Class 12 Arts',
-    subject: 'History',
-    category: 'Official Board Notes',
-    fileSize: '3.8 MB',
-    pages: 14,
-    downloads: 240,
-    views: 790,
-    rating: 5.0,
-    author: 'Alpha Arts Editorial Team',
-    uploadDate: '2026-08-25',
-    featured: true,
-    fileContentUrl: 'https://drive.google.com/file/d/10n6V-5Nlym52AYpuWCTvQN1S-tPjm5Fy/view?usp=drive_link',
-    driveUrl: 'https://drive.google.com/file/d/10n6V-5Nlym52AYpuWCTvQN1S-tPjm5Fy/view?usp=drive_link',
-    downloadUrl: 'https://drive.google.com/uc?export=download&id=10n6V-5Nlym52AYpuWCTvQN1S-tPjm5Fy'
-  },
-  {
-    id: 'pdf-c12-his-pyq-2024',
-    title: 'CBSE Class 12 History Board Exam Question Paper 2024 with Solutions',
-    description: 'Official CBSE Class 12 History previous year question paper with marking scheme and model answers.',
-    class: 'class-12-arts',
-    className: 'Class 12 Arts',
-    subject: 'History',
-    category: 'PYQ 2024',
-    year: '2024',
-    fileSize: '4.2 MB',
-    pages: 16,
-    downloads: 310,
-    views: 850,
-    rating: 4.9,
-    author: 'CBSE Board',
-    uploadDate: '2026-08-25',
-    fileContentUrl: 'https://drive.google.com/file/d/10n6V-5Nlym52AYpuWCTvQN1S-tPjm5Fy/view?usp=drive_link',
-    driveUrl: 'https://drive.google.com/file/d/10n6V-5Nlym52AYpuWCTvQN1S-tPjm5Fy/view?usp=drive_link',
-    downloadUrl: 'https://drive.google.com/uc?export=download&id=10n6V-5Nlym52AYpuWCTvQN1S-tPjm5Fy'
-  },
-
-  {
     id: 'pdf-c12-it-dbms-30q',
     title: 'Class 12 IT — Database Management System: 30 Most Important 1 Mark Questions',
     description: 'Top 30 expected 1-mark objective questions, MCQs, fill-in-the-blanks, and one-word answers for Class 12 IT (Information Technology) Database Management System (DBMS) CBSE Board Exam.',

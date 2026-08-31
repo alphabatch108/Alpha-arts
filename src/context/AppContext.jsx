@@ -168,6 +168,9 @@ export const AppProvider = ({ children }) => {
   // App Data States with Central Database Sync & LocalStorage persistence
   const [classes] = useState(INITIAL_CLASSES);
   
+  const isFakePdf = (p) => !p || p.id === 'pdf-c12-geo-ch1' || p.id === 'pdf-c12-his-ch1' || p.id === 'pdf-c12-his-pyq-2024' || (typeof p.id === 'string' && p.id.startsWith('pdf-c12-his'));
+  const isFakeLecture = (y) => !y || (typeof y.id === 'string' && y.id.startsWith('yt-his'));
+
   const [pdfs, setPdfs] = useState(() => {
     const saved = localStorage.getItem('study_hub_uploaded_pdfs');
     if (saved) {
@@ -175,18 +178,17 @@ export const AppProvider = ({ children }) => {
         const parsed = JSON.parse(saved);
         if (Array.isArray(parsed) && parsed.length > 0) {
           const map = new Map();
-          INITIAL_PDFS.forEach(p => map.set(p.id, p));
+          INITIAL_PDFS.forEach(p => { if (!isFakePdf(p)) map.set(p.id, p); });
           parsed.forEach(p => {
-            if (p.id !== 'pdf-c12-geo-ch1') map.set(p.id, p);
+            if (!isFakePdf(p)) map.set(p.id, p);
           });
-          map.delete('pdf-c12-geo-ch1');
           const cleanList = Array.from(map.values());
           localStorage.setItem('study_hub_uploaded_pdfs', JSON.stringify(cleanList));
           return cleanList;
         }
       } catch (e) {}
     }
-    return INITIAL_PDFS.filter(p => p.id !== 'pdf-c12-geo-ch1');
+    return INITIAL_PDFS.filter(p => !isFakePdf(p));
   });
 
   const [youtubeLectures, setYoutubeLectures] = useState(() => {
@@ -194,10 +196,14 @@ export const AppProvider = ({ children }) => {
     if (saved) {
       try {
         const parsed = JSON.parse(saved);
-        if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          const cleanYt = parsed.filter(y => !isFakeLecture(y));
+          localStorage.setItem('study_hub_uploaded_yt', JSON.stringify(cleanYt));
+          return cleanYt;
+        }
       } catch (e) {}
     }
-    return INITIAL_YOUTUBE_LECTURES;
+    return INITIAL_YOUTUBE_LECTURES.filter(y => !isFakeLecture(y));
   });
 
   const [faqs, setFaqs] = useState(() => {
@@ -261,10 +267,12 @@ export const AppProvider = ({ children }) => {
       if (res.ok) {
         const data = await res.json();
         if (data.pdfs && Array.isArray(data.pdfs) && data.pdfs.length > 0) {
-          setPdfs(prev => prev.length === data.pdfs.length ? prev : data.pdfs);
+          const cleanPdfs = data.pdfs.filter(p => !isFakePdf(p));
+          setPdfs(prev => prev.length === cleanPdfs.length ? prev : cleanPdfs);
         }
         if (data.youtubeLectures && Array.isArray(data.youtubeLectures) && data.youtubeLectures.length > 0) {
-          setYoutubeLectures(prev => prev.length === data.youtubeLectures.length ? prev : data.youtubeLectures);
+          const cleanYt = data.youtubeLectures.filter(y => !isFakeLecture(y));
+          setYoutubeLectures(prev => prev.length === cleanYt.length ? prev : cleanYt);
         }
         if (data.faqs && Array.isArray(data.faqs) && data.faqs.length > 0) {
           setFaqs(prev => prev.length === data.faqs.length ? prev : data.faqs);
@@ -281,13 +289,12 @@ export const AppProvider = ({ children }) => {
         const cloudData = await cloudRes.json();
         if (cloudData) {
           const cloudList = (Array.isArray(cloudData) ? cloudData : Object.values(cloudData))
-            .filter(p => p && p.id !== 'pdf-c12-geo-ch1');
+            .filter(p => !isFakePdf(p));
           if (cloudList.length > 0) {
             setPdfs(prev => {
               const uniqueMap = new Map();
-              prev.forEach(p => { if (p.id !== 'pdf-c12-geo-ch1') uniqueMap.set(p.id, p); });
-              cloudList.forEach(p => { if (p.id !== 'pdf-c12-geo-ch1') uniqueMap.set(p.id, p); });
-              uniqueMap.delete('pdf-c12-geo-ch1');
+              prev.forEach(p => { if (!isFakePdf(p)) uniqueMap.set(p.id, p); });
+              cloudList.forEach(p => { if (!isFakePdf(p)) uniqueMap.set(p.id, p); });
               const mergedList = Array.from(uniqueMap.values());
               localStorage.setItem('study_hub_uploaded_pdfs', JSON.stringify(mergedList));
               return mergedList;
