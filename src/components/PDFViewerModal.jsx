@@ -48,17 +48,12 @@ export const PDFViewerModal = () => {
 
   // Extract Google Drive Direct Download URL
   const getDownloadUrl = (pdf) => {
-    if (pdf.downloadUrl) return pdf.downloadUrl;
-    if (!pdf || !pdf.fileContentUrl) return '';
-    const url = pdf.fileContentUrl;
-    if (url.includes('drive.google.com')) {
-      const match = url.match(/\/file\/d\/([^\/]+)/) || url.match(/id=([^\&]+)/);
-      if (match && match[1]) {
-        return `https://drive.google.com/uc?export=download&id=${match[1]}`;
-      }
-      return url;
+    if (!pdf) return '';
+    if (pdf.fileContentUrl && pdf.fileContentUrl.includes('drive.google.com')) {
+      return pdf.fileContentUrl;
     }
-    return url;
+    if (pdf.downloadUrl) return pdf.downloadUrl;
+    return pdf.fileContentUrl || '';
   };
 
   const isDriveUrl = viewingPdf.fileContentUrl && viewingPdf.fileContentUrl.includes('drive.google.com');
