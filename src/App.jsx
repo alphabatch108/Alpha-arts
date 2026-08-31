@@ -1,5 +1,6 @@
 import React from 'react';
 import { AppProvider, useApp } from './context/AppContext';
+import { INITIAL_CLASSES } from './data/mockData';
 import { Navbar } from './components/Navbar';
 import { AlphaArtsIcon } from './components/AlphaArtsLogo';
 import { MobileBottomNav } from './components/MobileBottomNav';
@@ -47,24 +48,89 @@ const MainAppContent = () => {
   const [legalModalOpen, setLegalModalOpen] = React.useState(false);
   const [legalSection, setLegalSection] = React.useState('privacy');
 
-  // Filter logic for PDF notes directory
-  const filteredPdfs = pdfs.filter(pdf => {
-    const matchesClass = selectedClass === 'all' || pdf.class === selectedClass;
-    
+  // Dynamically populate available subjects from INITIAL_CLASSES and uploaded PDFs
+  const availableSubjects = React.useMemo(() => {
+    const subjectsSet = new Set([
+      'History',
+      'Political Science',
+      'Geography',
+      'Economics',
+      'Psychology',
+      'Science',
+      'Mathematics',
+      'Social Science',
+      'English',
+      'Hindi',
+      'Information Technology (IT)',
+      'Computer Science',
+      'Physical Education',
+      'Sanskrit'
+    ]);
+    (INITIAL_CLASSES || []).forEach(cls => {
+      cls.subjects?.forEach(subj => {
+        if (subj && subj.name) subjectsSet.add(subj.name);
+      });
+    });
+    (pdfs || []).forEach(pdf => {
+      if (pdf && pdf.subject) subjectsSet.add(pdf.subject);
+    });
+    return Array.from(subjectsSet).sort();
+  }, [pdfs]);
+
+  // Robust Filter logic for PDF notes directory
+  const filteredPdfs = (pdfs || []).filter(pdf => {
+    // 1. Class filter matching
+    let matchesClass = selectedClass === 'all';
+    if (!matchesClass) {
+      const pClass = (pdf.class || '').toLowerCase().trim();
+      const sClass = (selectedClass || '').toLowerCase().trim();
+      if (pClass === sClass) {
+        matchesClass = true;
+      } else if ((sClass === 'class-12-arts' || sClass === 'class-12') && (pClass === 'class-12-arts' || pClass === 'class-12')) {
+        matchesClass = true;
+      } else if ((sClass === 'class-11' || sClass === 'class-11-arts') && (pClass === 'class-11' || pClass === 'class-11-arts')) {
+        matchesClass = true;
+      } else if (pClass.includes(sClass) || sClass.includes(pClass)) {
+        matchesClass = true;
+      }
+    }
+
+    // 2. Subject filter matching
     let matchesSubject = selectedSubject === 'all';
     if (!matchesSubject) {
-      const pSub = (pdf.subject || '').toLowerCase();
-      const sSub = (selectedSubject || '').toLowerCase();
-      if (pSub === sSub) {
+      const pSub = (pdf.subject || '').toLowerCase().trim();
+      const sSub = (selectedSubject || '').toLowerCase().trim();
+
+      const normalize = (str) => {
+        return str
+          .replace(/information technology|it/g, 'it')
+          .replace(/political science|pol sci|polsci/g, 'polsci')
+          .replace(/computer science|cs/g, 'cs')
+          .replace(/physical education|pe/g, 'pe')
+          .replace(/social science|sst|social studies/g, 'sst')
+          .replace(/mathematics|maths|math/g, 'math');
+      };
+
+      const normP = normalize(pSub);
+      const normS = normalize(sSub);
+
+      if (pSub === sSub || normP === normS) {
         matchesSubject = true;
-      } else if ((pSub.includes('it') || pSub.includes('information')) && (sSub.includes('it') || sSub.includes('information'))) {
+      } else if (normP.includes(normS) || normS.includes(normP)) {
+        matchesSubject = true;
+      } else if (pSub.includes(sSub) || sSub.includes(pSub)) {
         matchesSubject = true;
       }
     }
 
-    const matchesSearch = pdf.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                          pdf.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                          pdf.subject.toLowerCase().includes(searchQuery.toLowerCase());
+    // 3. Search query matching
+    const query = searchQuery.toLowerCase().trim();
+    const matchesSearch = !query ||
+      (pdf.title || '').toLowerCase().includes(query) ||
+      (pdf.description || '').toLowerCase().includes(query) ||
+      (pdf.subject || '').toLowerCase().includes(query) ||
+      (pdf.category || '').toLowerCase().includes(query);
+
     return matchesClass && matchesSubject && matchesSearch;
   });
 
@@ -155,7 +221,7 @@ const MainAppContent = () => {
                   />
                 </div>
 
-                {/* Class Filter */}
+                {/* Class Filter Dropdown */}
                 <select
                   value={selectedClass}
                   onChange={(e) => setSelectedClass(e.target.value)}
@@ -166,15 +232,17 @@ const MainAppContent = () => {
                     border: '1px solid var(--border-color)',
                     background: 'var(--bg-secondary)',
                     color: 'var(--text-main)',
-                    fontSize: '0.85rem'
+                    fontSize: '0.85rem',
+                    cursor: 'pointer'
                   }}
                 >
                   <option value="all">All Classes</option>
                   <option value="class-10">Class 10 Board</option>
                   <option value="class-12-arts">Class 12 Arts</option>
+                  <option value="class-11">Class 11 Arts</option>
                 </select>
 
-                {/* Subject Filter */}
+                {/* Subject Filter Dropdown */}
                 <select
                   value={selectedSubject}
                   onChange={(e) => setSelectedSubject(e.target.value)}
@@ -185,22 +253,14 @@ const MainAppContent = () => {
                     border: '1px solid var(--border-color)',
                     background: 'var(--bg-secondary)',
                     color: 'var(--text-main)',
-                    fontSize: '0.85rem'
+                    fontSize: '0.85rem',
+                    cursor: 'pointer'
                   }}
                 >
                   <option value="all">All Subjects</option>
-                  <option value="History">History</option>
-                  <option value="Political Science">Political Science</option>
-                  <option value="Geography">Geography</option>
-                  <option value="Science">Science</option>
-                  <option value="Mathematics">Mathematics</option>
-                  <option value="Social Science">Social Science</option>
-                  <option value="Economics">Economics</option>
-                  <option value="Psychology">Psychology</option>
-                  <option value="English">English</option>
-                  <option value="Hindi">Hindi</option>
-                  <option value="Information Technology (IT)">IT</option>
-                  <option value="Computer Science">Computer Science</option>
+                  {availableSubjects.map(subj => (
+                    <option key={subj} value={subj}>{subj}</option>
+                  ))}
                 </select>
 
                 {/* Reset Button */}
