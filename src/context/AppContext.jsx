@@ -178,9 +178,14 @@ export const AppProvider = ({ children }) => {
         const parsed = JSON.parse(saved);
         if (Array.isArray(parsed) && parsed.length > 0) {
           const map = new Map();
-          INITIAL_PDFS.forEach(p => { if (!isFakePdf(p)) map.set(p.id, p); });
           parsed.forEach(p => {
             if (!isFakePdf(p)) map.set(p.id, p);
+          });
+          INITIAL_PDFS.forEach(p => {
+            if (!isFakePdf(p)) {
+              const existing = map.get(p.id) || {};
+              map.set(p.id, { ...existing, ...p });
+            }
           });
           const cleanList = Array.from(map.values());
           localStorage.setItem('study_hub_uploaded_pdfs', JSON.stringify(cleanList));
@@ -268,7 +273,8 @@ export const AppProvider = ({ children }) => {
         const data = await res.json();
         if (data.pdfs && Array.isArray(data.pdfs) && data.pdfs.length > 0) {
           const cleanPdfs = data.pdfs.filter(p => !isFakePdf(p));
-          setPdfs(prev => prev.length === cleanPdfs.length ? prev : cleanPdfs);
+          setPdfs(cleanPdfs);
+          localStorage.setItem('study_hub_uploaded_pdfs', JSON.stringify(cleanPdfs));
         }
         if (data.youtubeLectures && Array.isArray(data.youtubeLectures) && data.youtubeLectures.length > 0) {
           const cleanYt = data.youtubeLectures.filter(y => !isFakeLecture(y));
