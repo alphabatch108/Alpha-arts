@@ -58,9 +58,9 @@ export const INITIAL_PDFS = [
     author: 'Alpha Arts Editorial Team',
     uploadDate: '2026-08-31',
     featured: true,
-    fileContentUrl: 'https://drive.google.com/file/d/1NF9NjsPhvpnMxoIDx1wZUvy_dYk0ai5X/view?usp=drive_link',
-    driveUrl: 'https://drive.google.com/file/d/1NF9NjsPhvpnMxoIDx1wZUvy_dYk0ai5X/view?usp=drive_link',
-    downloadUrl: 'https://drive.google.com/uc?export=download&id=1NF9NjsPhvpnMxoIDx1wZUvy_dYk0ai5X'
+    fileContentUrl: 'https://drive.google.com/file/d/1X0aU0ckyZtkbVRMUIeKWhH8uaUk8xc3w/view?usp=drive_link',
+    driveUrl: 'https://drive.google.com/file/d/1X0aU0ckyZtkbVRMUIeKWhH8uaUk8xc3w/view?usp=drive_link',
+    downloadUrl: 'https://drive.google.com/uc?export=download&id=1X0aU0ckyZtkbVRMUIeKWhH8uaUk8xc3w'
   },
   {
     id: 'pdf-c12-geo-ch1-short-qa',

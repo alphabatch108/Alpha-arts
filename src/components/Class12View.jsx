@@ -52,9 +52,9 @@ export const Class12View = () => {
     author: 'Alpha Arts Editorial Team',
     uploadDate: '2026-08-31',
     featured: true,
-    fileContentUrl: 'https://drive.google.com/file/d/1NF9NjsPhvpnMxoIDx1wZUvy_dYk0ai5X/view?usp=drive_link',
-    driveUrl: 'https://drive.google.com/file/d/1NF9NjsPhvpnMxoIDx1wZUvy_dYk0ai5X/view?usp=drive_link',
-    downloadUrl: 'https://drive.google.com/uc?export=download&id=1NF9NjsPhvpnMxoIDx1wZUvy_dYk0ai5X'
+    fileContentUrl: 'https://drive.google.com/file/d/1X0aU0ckyZtkbVRMUIeKWhH8uaUk8xc3w/view?usp=drive_link',
+    driveUrl: 'https://drive.google.com/file/d/1X0aU0ckyZtkbVRMUIeKWhH8uaUk8xc3w/view?usp=drive_link',
+    downloadUrl: 'https://drive.google.com/uc?export=download&id=1X0aU0ckyZtkbVRMUIeKWhH8uaUk8xc3w'
   };
 
   const handleSubjectClick = (subjName) => {
@@ -287,7 +287,7 @@ export const Class12View = () => {
             <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '0.85rem' }}>
               {/* Direct Download Button */}
               <a
-                href={itDbmsPdf.downloadUrl || "https://drive.google.com/uc?export=download&id=1NF9NjsPhvpnMxoIDx1wZUvy_dYk0ai5X"}
+                href={itDbmsPdf.downloadUrl || "https://drive.google.com/uc?export=download&id=1X0aU0ckyZtkbVRMUIeKWhH8uaUk8xc3w"}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-primary hover-lift"
@@ -309,7 +309,7 @@ export const Class12View = () => {
 
               {/* Open Google Drive Link Button */}
               <a
-                href={itDbmsPdf.fileContentUrl || "https://drive.google.com/file/d/1NF9NjsPhvpnMxoIDx1wZUvy_dYk0ai5X/view?usp=drive_link"}
+                href={itDbmsPdf.fileContentUrl || "https://drive.google.com/file/d/1X0aU0ckyZtkbVRMUIeKWhH8uaUk8xc3w/view?usp=drive_link"}
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
