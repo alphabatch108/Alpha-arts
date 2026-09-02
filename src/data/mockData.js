@@ -101,6 +101,26 @@ export const INITIAL_PDFS = [
     fileContentUrl: 'https://drive.google.com/file/d/1Hy5j9fwtCe1Bj1h1Ys1uvl9lz9gYzvV7/view?usp=drive_link',
     driveUrl: 'https://drive.google.com/file/d/1Hy5j9fwtCe1Bj1h1Ys1uvl9lz9gYzvV7/view?usp=drive_link',
     downloadUrl: 'https://drive.google.com/uc?export=download&id=1Hy5j9fwtCe1Bj1h1Ys1uvl9lz9gYzvV7'
+  },
+  {
+    id: 'pdf-c12-hin-aaroh-ch1-part1',
+    title: "Class 12 Hindi — आरोह (कविता - 1 'आत्मपरिचय' (सारांश एवं व्याख्या ) part - 1",
+    description: "कक्षा 12 हिंदी (Hindi Medium) - आरोह (कविता - 1 'आत्मपरिचय' (सारांश एवं व्याख्या ) part - 1 सम्पूर्ण नोट्स एवं व्याख्या।",
+    class: 'class-12-arts',
+    className: 'Class 12 Arts',
+    subject: 'Hindi',
+    category: 'सारांश एवं व्याख्या',
+    fileSize: '3.0 MB',
+    pages: 8,
+    downloads: 310,
+    views: 920,
+    rating: 5.0,
+    author: 'Alpha Arts Editorial Team',
+    uploadDate: '2026-09-02',
+    featured: true,
+    fileContentUrl: 'https://drive.google.com/file/d/1-Nu6L1HpOKvfgl6MnvX6q1jTypSZ2PqQ/view?usp=drive_link',
+    driveUrl: 'https://drive.google.com/file/d/1-Nu6L1HpOKvfgl6MnvX6q1jTypSZ2PqQ/view?usp=drive_link',
+    downloadUrl: 'https://drive.google.com/uc?export=download&id=1-Nu6L1HpOKvfgl6MnvX6q1jTypSZ2PqQ'
   }
 ];
 
