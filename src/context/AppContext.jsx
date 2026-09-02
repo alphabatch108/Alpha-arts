@@ -108,7 +108,7 @@ export const AppProvider = ({ children }) => {
   };
 
   const setActiveTab = (t, c = null, s = null) => navigateTo(t, c, s);
-  const setSelectedClass = (c) => navigateTo(activeTabState, c);
+  const setSelectedClass = (c, s = null) => navigateTo(activeTabState, c, s);
   const setSelectedSubject = (s) => navigateTo(activeTabState, selectedClassState, s);
 
   useEffect(() => {

@@ -77,6 +77,28 @@ const MainAppContent = () => {
     return Array.from(subjectsSet).sort();
   }, [pdfs]);
 
+  const currentSelectClass = React.useMemo(() => {
+    if (!selectedClass || selectedClass === 'all') return 'all';
+    if (selectedClass === 'class-12' || selectedClass === 'class-12-arts') return 'class-12-arts';
+    if (selectedClass === 'class-10' || selectedClass === 'class-10-board') return 'class-10';
+    if (selectedClass === 'class-11' || selectedClass === 'class-11-arts') return 'class-11';
+    return selectedClass;
+  }, [selectedClass]);
+
+  const currentSelectSubject = React.useMemo(() => {
+    if (!selectedSubject || selectedSubject === 'all') return 'all';
+    const found = availableSubjects.find(s => {
+      if (s === selectedSubject) return true;
+      const normalize = (str) => (str || '').toLowerCase()
+        .replace(/information technology|it \(information tech\)/g, 'it')
+        .replace(/political science|pol sci|polsci/g, 'polsci')
+        .replace(/computer science|cs/g, 'cs')
+        .replace(/physical education|pe/g, 'pe');
+      return normalize(s) === normalize(selectedSubject);
+    });
+    return found || selectedSubject;
+  }, [selectedSubject, availableSubjects]);
+
   // Robust Filter logic for PDF notes directory
   const filteredPdfs = (pdfs || []).filter(pdf => {
     // 1. Class filter matching
@@ -223,8 +245,11 @@ const MainAppContent = () => {
 
                 {/* Class Filter Dropdown */}
                 <select
-                  value={selectedClass}
-                  onChange={(e) => setSelectedClass(e.target.value)}
+                  value={currentSelectClass}
+                  onChange={(e) => {
+                    const newClass = e.target.value;
+                    setSelectedClass(newClass, 'all');
+                  }}
                   style={{
                     width: '100%',
                     padding: '0.6rem 0.85rem',
@@ -244,7 +269,7 @@ const MainAppContent = () => {
 
                 {/* Subject Filter Dropdown */}
                 <select
-                  value={selectedSubject}
+                  value={currentSelectSubject}
                   onChange={(e) => setSelectedSubject(e.target.value)}
                   style={{
                     width: '100%',
