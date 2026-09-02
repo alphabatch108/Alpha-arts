@@ -35,6 +35,11 @@ export const Class12View = () => {
     (pdf.subject?.toLowerCase().includes('geo') || pdf.subject?.toLowerCase().includes('भूगोल'))
   );
 
+  const c12PolPdfs = (pdfs || []).filter(pdf => 
+    pdf.class === 'class-12-arts' && 
+    (pdf.subject?.toLowerCase().includes('pol') || pdf.subject?.toLowerCase().includes('राजनीति') || pdf.title?.toLowerCase().includes('political'))
+  );
+
 
   const itDbmsPdf = pdfs.find(p => p.id === 'pdf-c12-it-dbms-30q') || {
     id: 'pdf-c12-it-dbms-30q',
@@ -550,6 +555,121 @@ export const Class12View = () => {
                       rel="noreferrer"
                       className="btn btn-primary btn-sm"
                       style={{ flex: 1, padding: '0.5rem 0.75rem', fontSize: '0.825rem', borderRadius: '8px', textDecoration: 'none', background: '#d97706', borderColor: '#d97706', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.4rem' }}
+                    >
+                      <Download size={14} />
+                      <span>Download</span>
+                    </a>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Class 12 Political Science Dedicated Section */}
+          <section style={{ marginTop: '2.5rem', marginBottom: '1.5rem' }}>
+            <div style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              marginBottom: '1.25rem',
+              flexWrap: 'wrap',
+              gap: '1rem'
+            }}>
+              <div>
+                <h2 style={{
+                  fontSize: '1.5rem',
+                  fontWeight: 800,
+                  color: 'var(--text-main)',
+                  letterSpacing: '-0.02em',
+                  fontFamily: "'Outfit', sans-serif"
+                }}>
+                  Class 12 Political Science (राजनीति विज्ञान) Study Materials
+                </h2>
+                <p style={{ fontSize: '0.875rem', color: 'var(--text-muted)', marginTop: '0.2rem' }}>
+                  अध्याय 1 — द्विध्रुवीयता का अंत, महत्वपूर्ण अति लघुउत्तरीय एवं लघुउत्तरीय प्रश्नोत्तर (Most Important Short Question Answer) तथा बोर्ड परीक्षा नोट्स।
+                </p>
+              </div>
+            </div>
+
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
+              gap: '1.25rem'
+            }}>
+              {c12PolPdfs.map((pdf) => (
+                <div 
+                  key={pdf.id}
+                  className="glass-card hover-lift"
+                  style={{
+                    padding: '1.35rem',
+                    borderRadius: '14px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'space-between',
+                    background: 'var(--bg-card)',
+                    border: '1px solid var(--border-color)'
+                  }}
+                >
+                  <div>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.75rem' }}>
+                      <span style={{
+                        fontSize: '0.7rem',
+                        fontWeight: 700,
+                        padding: '0.2rem 0.65rem',
+                        borderRadius: '9999px',
+                        background: 'rgba(239, 68, 68, 0.15)',
+                        color: '#ef4444',
+                        textTransform: 'uppercase'
+                      }}>
+                        {pdf.category || 'Short Q&A'}
+                      </span>
+                      <span style={{ fontSize: '0.75rem', color: 'var(--text-dim)' }}>
+                        {pdf.subject}
+                      </span>
+                    </div>
+
+                    <h3 style={{
+                      fontSize: '1.05rem',
+                      fontWeight: 700,
+                      color: 'var(--text-main)',
+                      lineHeight: 1.4,
+                      marginBottom: '0.5rem',
+                      fontFamily: "'Outfit', sans-serif"
+                    }}>
+                      {pdf.title}
+                    </h3>
+
+                    <p style={{
+                      fontSize: '0.825rem',
+                      color: 'var(--text-muted)',
+                      lineHeight: 1.5,
+                      marginBottom: '1rem'
+                    }}>
+                      {pdf.description}
+                    </p>
+                  </div>
+
+                  <div style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.65rem',
+                    paddingTop: '0.85rem',
+                    borderTop: '1px solid var(--border-color)'
+                  }}>
+                    <button
+                      onClick={() => setViewingPdf(pdf)}
+                      className="btn btn-secondary btn-sm"
+                      style={{ flex: 1, padding: '0.5rem 0.75rem', fontSize: '0.825rem', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.4rem' }}
+                    >
+                      <FileText size={14} />
+                      <span>Preview</span>
+                    </button>
+                    <a
+                      href={pdf.downloadUrl || pdf.fileContentUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="btn btn-primary btn-sm"
+                      style={{ flex: 1, padding: '0.5rem 0.75rem', fontSize: '0.825rem', borderRadius: '8px', textDecoration: 'none', background: '#ef4444', borderColor: '#ef4444', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.4rem' }}
                     >
                       <Download size={14} />
                       <span>Download</span>

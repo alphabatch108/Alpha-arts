@@ -87,7 +87,7 @@ export const AppProvider = ({ children }) => {
   const navigateTo = (tab, classId = null, subject = null, replace = false) => {
     const nextTab = tab;
     const nextClass = classId !== null ? classId : (tab === 'class-10' ? 'class-10' : (tab === 'class-12' ? 'class-12-arts' : (tab === 'home' ? 'all' : selectedClass)));
-    const nextSubject = subject !== null ? subject : selectedSubject;
+    const nextSubject = subject !== null ? subject : (tab === 'class-10' || tab === 'class-12' || tab === 'home' ? 'all' : selectedSubject);
 
     setActiveTabState(nextTab);
     setSelectedClassState(nextClass);
@@ -299,6 +299,7 @@ export const AppProvider = ({ children }) => {
           if (cloudList.length > 0) {
             setPdfs(prev => {
               const uniqueMap = new Map();
+              INITIAL_PDFS.forEach(p => { if (!isFakePdf(p)) uniqueMap.set(p.id, p); });
               prev.forEach(p => { if (!isFakePdf(p)) uniqueMap.set(p.id, p); });
               cloudList.forEach(p => { if (!isFakePdf(p)) uniqueMap.set(p.id, p); });
               const mergedList = Array.from(uniqueMap.values());
