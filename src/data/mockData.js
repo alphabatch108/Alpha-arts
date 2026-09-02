@@ -121,6 +121,26 @@ export const INITIAL_PDFS = [
     fileContentUrl: 'https://drive.google.com/file/d/1-Nu6L1HpOKvfgl6MnvX6q1jTypSZ2PqQ/view?usp=drive_link',
     driveUrl: 'https://drive.google.com/file/d/1-Nu6L1HpOKvfgl6MnvX6q1jTypSZ2PqQ/view?usp=drive_link',
     downloadUrl: 'https://drive.google.com/uc?export=download&id=1-Nu6L1HpOKvfgl6MnvX6q1jTypSZ2PqQ'
+  },
+  {
+    id: 'pdf-c12-hin-aaroh-ch1-part2',
+    title: "Class 12 Hindi — आरोह कविता - 1 , एक गीत (सारांश एवं व्याख्या ) कविता - 1 part 2",
+    description: "कक्षा 12 हिंदी (Hindi Medium) - आरोह कविता - 1 , एक गीत (सारांश एवं व्याख्या ) कविता - 1 part 2 सम्पूर्ण नोट्स एवं व्याख्या।",
+    class: 'class-12-arts',
+    className: 'Class 12 Arts',
+    subject: 'Hindi',
+    category: 'सारांश एवं व्याख्या',
+    fileSize: '3.2 MB',
+    pages: 10,
+    downloads: 340,
+    views: 980,
+    rating: 5.0,
+    author: 'Alpha Arts Editorial Team',
+    uploadDate: '2026-09-02',
+    featured: true,
+    fileContentUrl: 'https://drive.google.com/file/d/1hw2zbRCHHVyTIb4oSABYevxHrktuTfBr/view?usp=drive_link',
+    driveUrl: 'https://drive.google.com/file/d/1hw2zbRCHHVyTIb4oSABYevxHrktuTfBr/view?usp=drive_link',
+    downloadUrl: 'https://drive.google.com/uc?export=download&id=1hw2zbRCHHVyTIb4oSABYevxHrktuTfBr'
   }
 ];
 
