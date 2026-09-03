@@ -45,6 +45,11 @@ export const Class12View = () => {
     (pdf.subject?.toLowerCase().includes('hin') || pdf.subject?.toLowerCase().includes('हिंदी') || pdf.title?.toLowerCase().includes('hindi') || pdf.title?.includes('आरोह'))
   );
 
+  const c12EngPdfs = (pdfs || []).filter(pdf => 
+    pdf.class === 'class-12-arts' && 
+    (pdf.subject?.toLowerCase().includes('eng') || pdf.title?.toLowerCase().includes('english') || pdf.title?.toLowerCase().includes('flamingo') || pdf.title?.toLowerCase().includes('vistas'))
+  );
+
 
   const itDbmsPdf = pdfs.find(p => p.id === 'pdf-c12-it-dbms-30q') || {
     id: 'pdf-c12-it-dbms-30q',
@@ -790,6 +795,121 @@ export const Class12View = () => {
                       rel="noreferrer"
                       className="btn btn-primary btn-sm"
                       style={{ flex: 1, padding: '0.5rem 0.75rem', fontSize: '0.825rem', borderRadius: '8px', textDecoration: 'none', background: '#f97316', borderColor: '#f97316', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.4rem' }}
+                    >
+                      <Download size={14} />
+                      <span>Download</span>
+                    </a>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Class 12 English Dedicated Section */}
+          <section style={{ marginTop: '2.5rem', marginBottom: '1.5rem' }}>
+            <div style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              marginBottom: '1.25rem',
+              flexWrap: 'wrap',
+              gap: '1rem'
+            }}>
+              <div>
+                <h2 style={{
+                  fontSize: '1.5rem',
+                  fontWeight: 800,
+                  color: 'var(--text-main)',
+                  letterSpacing: '-0.02em',
+                  fontFamily: "'Outfit', sans-serif"
+                }}>
+                  Class 12 English Study Materials
+                </h2>
+                <p style={{ fontSize: '0.875rem', color: 'var(--text-muted)', marginTop: '0.2rem' }}>
+                  Flamingo & Vistas chapters, Lesson summaries, most important points, and board preparation notes.
+                </p>
+              </div>
+            </div>
+
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
+              gap: '1.25rem'
+            }}>
+              {c12EngPdfs.map((pdf) => (
+                <div 
+                  key={pdf.id}
+                  className="glass-card hover-lift"
+                  style={{
+                    padding: '1.35rem',
+                    borderRadius: '14px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'space-between',
+                    background: 'var(--bg-card)',
+                    border: '1px solid var(--border-color)'
+                  }}
+                >
+                  <div>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.75rem' }}>
+                      <span style={{
+                        fontSize: '0.7rem',
+                        fontWeight: 700,
+                        padding: '0.2rem 0.65rem',
+                        borderRadius: '9999px',
+                        background: 'rgba(16, 185, 129, 0.15)',
+                        color: '#10b981',
+                        textTransform: 'uppercase'
+                      }}>
+                        {pdf.category || 'Summary & Key Points'}
+                      </span>
+                      <span style={{ fontSize: '0.75rem', color: 'var(--text-dim)' }}>
+                        {pdf.subject}
+                      </span>
+                    </div>
+
+                    <h3 style={{
+                      fontSize: '1.05rem',
+                      fontWeight: 700,
+                      color: 'var(--text-main)',
+                      lineHeight: 1.4,
+                      marginBottom: '0.5rem',
+                      fontFamily: "'Outfit', sans-serif"
+                    }}>
+                      {pdf.title}
+                    </h3>
+
+                    <p style={{
+                      fontSize: '0.825rem',
+                      color: 'var(--text-muted)',
+                      lineHeight: 1.5,
+                      marginBottom: '1rem'
+                    }}>
+                      {pdf.description}
+                    </p>
+                  </div>
+
+                  <div style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.65rem',
+                    paddingTop: '0.85rem',
+                    borderTop: '1px solid var(--border-color)'
+                  }}>
+                    <button
+                      onClick={() => setViewingPdf(pdf)}
+                      className="btn btn-secondary btn-sm"
+                      style={{ flex: 1, padding: '0.5rem 0.75rem', fontSize: '0.825rem', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.4rem' }}
+                    >
+                      <FileText size={14} />
+                      <span>Preview</span>
+                    </button>
+                    <a
+                      href={pdf.downloadUrl || pdf.fileContentUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="btn btn-primary btn-sm"
+                      style={{ flex: 1, padding: '0.5rem 0.75rem', fontSize: '0.825rem', borderRadius: '8px', textDecoration: 'none', background: '#10b981', borderColor: '#10b981', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.4rem' }}
                     >
                       <Download size={14} />
                       <span>Download</span>
