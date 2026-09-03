@@ -1131,6 +1131,9 @@ export const Class12View = () => {
         </div>
       </div>
 
+      {/* Bottom Footer Banner */}
+      <AdBanner slot="footer" type="728x90" label="Advertisement Banner (728x90)" />
+
       <style>{`
         @media (max-width: 900px) {
           .class12-layout-grid {

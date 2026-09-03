@@ -775,10 +775,28 @@ export const AdminDashboard = () => {
                 <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem', cursor: 'pointer' }}>
                   <input
                     type="checkbox"
+                    checked={adsSettings.middleBanner !== false}
+                    onChange={(e) => setAdsSettings(prev => ({ ...prev, middleBanner: e.target.checked }))}
+                  />
+                  <span>Middle Section Banner</span>
+                </label>
+
+                <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem', cursor: 'pointer' }}>
+                  <input
+                    type="checkbox"
                     checked={adsSettings.pdfPage !== false}
                     onChange={(e) => setAdsSettings(prev => ({ ...prev, pdfPage: e.target.checked }))}
                   />
-                  <span>PDF Directory Page Ad</span>
+                  <span>PDF Directory Banner</span>
+                </label>
+
+                <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem', cursor: 'pointer' }}>
+                  <input
+                    type="checkbox"
+                    checked={adsSettings.interCard !== false}
+                    onChange={(e) => setAdsSettings(prev => ({ ...prev, interCard: e.target.checked }))}
+                  />
+                  <span>In-Feed Note Card Ads</span>
                 </label>
 
                 <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem', cursor: 'pointer' }}>
@@ -787,7 +805,16 @@ export const AdminDashboard = () => {
                     checked={adsSettings.sidebar !== false}
                     onChange={(e) => setAdsSettings(prev => ({ ...prev, sidebar: e.target.checked }))}
                   />
-                  <span>Video & Sidebar Ad</span>
+                  <span>Sidebar Ads</span>
+                </label>
+
+                <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem', cursor: 'pointer' }}>
+                  <input
+                    type="checkbox"
+                    checked={adsSettings.footer !== false}
+                    onChange={(e) => setAdsSettings(prev => ({ ...prev, footer: e.target.checked }))}
+                  />
+                  <span>Page Footer Banner</span>
                 </label>
               </div>
             </div>

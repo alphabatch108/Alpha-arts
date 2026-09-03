@@ -240,8 +240,7 @@ export const AppProvider = ({ children }) => {
 
   // Adsense Control Panel State
   const [adsSettings, setAdsSettings] = useState(() => {
-    const saved = localStorage.getItem('study_hub_ads');
-    return saved ? JSON.parse(saved) : {
+    const defaults = {
       enabled: true,
       homepageBanner: true,
       middleBanner: true,
@@ -252,6 +251,18 @@ export const AppProvider = ({ children }) => {
       publisherId: 'ca-pub-4733389173568893',
       customNotice: 'Sponsored Educational Announcement'
     };
+    const saved = localStorage.getItem('study_hub_ads');
+    if (saved) {
+      try {
+        const parsed = JSON.parse(saved);
+        return {
+          ...defaults,
+          ...parsed,
+          publisherId: parsed.publisherId || defaults.publisherId
+        };
+      } catch (e) {}
+    }
+    return defaults;
   });
 
   // Download handler (Free download tracking)

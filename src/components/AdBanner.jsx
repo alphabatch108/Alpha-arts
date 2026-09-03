@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useApp } from '../context/AppContext';
 
 export const AdBanner = ({ 
@@ -8,12 +8,14 @@ export const AdBanner = ({
   style = {} 
 }) => {
   const { adsSettings } = useApp();
+  const adRef = useRef(null);
 
   // Ensure ads are enabled by default unless explicitly turned off
   const isEnabled = adsSettings?.enabled !== false;
   const isSlotEnabled = !slot || adsSettings?.[slot] !== false;
 
-  const rawPublisherId = adsSettings?.publisherId || '';
+  // Default to official verified site Publisher ID if none is set in context
+  const rawPublisherId = adsSettings?.publisherId || 'ca-pub-4733389173568893';
 
   const formattedPublisherId = React.useMemo(() => {
     if (!rawPublisherId) return '';
@@ -24,10 +26,10 @@ export const AdBanner = ({
   }, [rawPublisherId]);
 
   useEffect(() => {
-    if (!isEnabled || !isSlotEnabled) return;
+    if (!isEnabled || !isSlotEnabled || !formattedPublisherId) return;
     
     // Inject Google AdSense script dynamically if publisher ID is configured and script is not yet added
-    if (typeof window !== 'undefined' && formattedPublisherId) {
+    if (typeof window !== 'undefined') {
       const scriptId = 'google-adsense-script';
       if (!document.getElementById(scriptId)) {
         const script = document.createElement('script');
@@ -41,10 +43,15 @@ export const AdBanner = ({
 
     const timer = setTimeout(() => {
       try {
-        if (typeof window !== 'undefined' && window.adsbygoogle && formattedPublisherId) {
-          (window.adsbygoogle = window.adsbygoogle || []).push({});
+        if (typeof window !== 'undefined' && adRef.current) {
+          // Verify element has not already been filled by Google AdSense
+          if (!adRef.current.getAttribute('data-adsbygoogle-status')) {
+            (window.adsbygoogle = window.adsbygoogle || []).push({});
+          }
         }
-      } catch (e) {}
+      } catch (e) {
+        console.warn('AdSense push notice:', e);
+      }
     }, 200);
 
     return () => clearTimeout(timer);
@@ -111,6 +118,7 @@ export const AdBanner = ({
             {customNotice}
           </div>
           <ins
+            ref={adRef}
             className="adsbygoogle"
             style={{ display: 'block', textAlign: 'center', width: '100%', minHeight: bannerHeight }}
             data-ad-client={formattedPublisherId}
@@ -158,3 +166,4 @@ export const AdBanner = ({
     </aside>
   );
 };
+
