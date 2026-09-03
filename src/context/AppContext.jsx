@@ -249,7 +249,7 @@ export const AppProvider = ({ children }) => {
       sidebar: true,
       footer: true,
       pdfPage: true,
-      publisherId: '',
+      publisherId: 'ca-pub-4733389173568893',
       customNotice: 'Sponsored Educational Announcement'
     };
   });
