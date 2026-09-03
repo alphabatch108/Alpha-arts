@@ -157,7 +157,7 @@ const apiServerPlugin = () => ({
 
 export default defineConfig({
   plugins: [react(), apiServerPlugin()],
-  base: '/Alpha-arts/',
+  base: '/',
   server: {
     host: true,
     allowedHosts: [
